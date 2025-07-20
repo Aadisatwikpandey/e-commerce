@@ -1,27 +1,43 @@
 .product-form-container {
-  padding: var(--spacing-lg);
+  padding: var(--spacing-xl);
   max-width: 700px;
   margin: var(--spacing-xl) auto;
-  background-color: var(--surface-color);
-  border-radius: var(--border-radius-md);
-  box-shadow: var(--box-shadow-md);
+  background-color: var(--text-light);
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 8px 20px var(--shadow-light);
 }
 
 .product-form-container h2 {
   text-align: center;
+  font-size: 2.2em;
   color: var(--primary-color);
-  margin-bottom: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+  position: relative;
+  padding-bottom: var(--spacing-sm);
+}
+
+.product-form-container h2::after {
+  content: '';
+  width: 60px;
+  height: 3px;
+  background-color: var(--accent-color);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  border-radius: 2px;
 }
 
 .product-form-group {
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
 }
 
 .product-form-group label {
   display: block;
   margin-bottom: var(--spacing-sm);
-  font-weight: 500;
-  color: var(--text-color);
+  font-weight: 600;
+  color: var(--text-dark);
+  font-size: 1.1em;
 }
 
 .product-form-group input[type="text"],
@@ -30,11 +46,14 @@
 .product-form-group textarea,
 .product-form-group select {
   width: 100%;
-  padding: var(--spacing-sm);
+  padding: var(--spacing-md);
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius-sm);
   box-sizing: border-box;
-  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  font-size: 1em;
+  color: var(--text-dark);
+  background-color: var(--background-light);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .product-form-group input[type="text"]:focus,
@@ -44,26 +63,43 @@
 .product-form-group select:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
 }
 
 .product-form-group textarea {
   resize: vertical;
-  min-height: 80px;
+  min-height: 100px;
 }
 
 .product-form-submit-button {
   width: 100%;
   padding: var(--spacing-md);
-  font-size: 1.1rem;
-  font-weight: 600;
-  background-color: var(--primary-color);
-  color: var(--surface-color);
+  font-size: 1.1em;
+  font-weight: 700;
   border-radius: var(--border-radius-md);
   margin-top: var(--spacing-lg);
-  transition: background-color 0.2s ease-in-out;
 }
 
-.product-form-submit-button:hover {
-  background-color: #0056b3;
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .product-form-container {
+    padding: var(--spacing-md);
+  }
+
+  .product-form-container h2 {
+    font-size: 1.8em;
+  }
+
+  .product-form-group label {
+    font-size: 1em;
+  }
+
+  .product-form-group input, .product-form-group textarea, .product-form-group select {
+    padding: var(--spacing-sm);
+  }
+
+  .product-form-submit-button {
+    font-size: 1em;
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
 }

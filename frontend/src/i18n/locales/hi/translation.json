@@ -29,5 +29,7 @@
   "image_url": "छवि यूआरएल",
   "select_a_category": "एक श्रेणी चुनें",
   "update_product": "उत्पाद अपडेट करें",
-  "confirm_delete_product": "क्या आप वाकई इस उत्पाद को हटाना चाहते हैं?"
+  "confirm_delete_product": "क्या आप वाकई इस उत्पाद को हटाना चाहते हैं?",
+  "about_us": "हमारे बारे में",
+  "find_a_store": "स्टोर ढूंढें"
 }

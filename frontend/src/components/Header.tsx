@@ -19,13 +19,13 @@ const Header = () => {
         <Link to="/">{t('home')}</Link>
         <Link to="/products">{t('shop')}</Link>
         <Link to="/inspiration">{t('inspiration')}</Link>
-        <Link to="/about">{t('about_us')}</Link>
+        <Link to="/about-us">{t('about_us')}</Link>
       </nav>
       <div className="header-search">
         <input type="text" placeholder={t('search')} className="form-input" />
       </div>
       <div className="header-utility">
-        <Link to="/stores">{t('find_a_store')}</Link>
+        <Link to="/find-a-store">{t('find_a_store')}</Link>
         <Link to="/account">{t('account')}</Link>
         <Link to="/wishlist">{t('wishlist')}</Link>
         <Link to="/cart" className="cart-icon">

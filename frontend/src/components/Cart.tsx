@@ -27,6 +27,7 @@ const Cart = () => {
           <div className="cart-items">
             {state.items.map((item) => (
               <div key={item.id} className="cart-item">
+                <img src={item.imageUrl} alt={item.name} className="cart-item-image" />
                 <div className="cart-item-info">
                   <h3>{item.name}</h3>
                   <p>{t('price')}: ${item.price.toFixed(2)}</p>

@@ -1,56 +1,110 @@
 .homepage-container {
-  padding: calc(var(--base-spacing) * 3) 0;
+  padding: 0;
 }
 
 .hero-section {
-  height: 60vh;
-  background-image: url('https://via.placeholder.com/1280x720?text=Beautiful+Furniture');
+  height: 70vh;
+  background-image: url('https://images.pexels.com/photos/276514/pexels-photo-276514.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); /* New hero image */
   background-size: cover;
   background-position: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: var(--neutral-surface);
+  color: var(--text-light);
   text-align: center;
-  padding: calc(var(--base-spacing) * 3);
+  padding: var(--spacing-xl);
+  position: relative;
 }
 
-.hero-section h1 {
-  font-size: 3rem; /* 48px */
-  font-weight: 700; /* Bold */
-  margin-bottom: var(--base-spacing);
-  color: var(--neutral-surface);
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4); /* Dark overlay */
+  z-index: 1;
 }
 
-.hero-section p {
-  font-size: 1.25rem; /* 20px */
-  max-width: 600px;
-  margin-bottom: calc(var(--base-spacing) * 3);
-  color: var(--neutral-surface);
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+}
+
+.hero-content h1 {
+  font-size: 3.5em;
+  margin-bottom: var(--spacing-md);
+  color: var(--text-light);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content p {
+  font-size: 1.3em;
+  margin-bottom: var(--spacing-xl);
+  color: var(--text-light);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.hero-buttons .button {
+  margin: 0 var(--spacing-sm);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5em;
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-xl);
+  position: relative;
+  padding-bottom: var(--spacing-sm);
+}
+
+.section-title::after {
+  content: '';
+  width: 80px;
+  height: 4px;
+  background-color: var(--accent-color);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  border-radius: 2px;
 }
 
 .featured-categories, .bestsellers-section {
-  padding: calc(var(--base-spacing) * 6) calc(var(--base-spacing) * 3);
+  padding: var(--spacing-xl) 0;
+  background-color: var(--background-light);
 }
 
-.category-grid {
+.category-grid, .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: var(--grid-gutter);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .category-card {
   position: relative;
   overflow: hidden;
-  border-radius: var(--card-radius);
+  border-radius: var(--border-radius-md);
+  box-shadow: 0 4px 12px var(--shadow-light);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px var(--shadow-medium);
 }
 
 .category-card img {
   width: 100%;
-  height: 350px;
+  height: 250px;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  display: block;
+  transition: transform 0.3s;
 }
 
 .category-card:hover img {
@@ -62,15 +116,38 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-  padding: calc(var(--base-spacing) * 2);
-  color: var(--neutral-surface);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  padding: var(--spacing-md);
+  color: var(--text-light);
+  text-align: center;
 }
 
 .category-card-overlay h3 {
-  color: var(--neutral-surface);
+  color: var(--text-light);
+  margin: 0;
+  font-size: 1.5em;
 }
 
-.bestsellers-carousel {
-  /* Add styles for carousel here */
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.5em;
+  }
+
+  .hero-content p {
+    font-size: 1em;
+  }
+
+  .hero-buttons .button {
+    width: 100%;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .section-title {
+    font-size: 2em;
+  }
+
+  .category-grid, .product-grid {
+    grid-template-columns: 1fr;
+  }
 }
