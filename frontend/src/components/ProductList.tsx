@@ -27,7 +27,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart, t }) =>
 
   return (
     <Link to={`/products/${product.id}`} className="product-card">
-      <img src={product.imageUrl} alt={product.name} className="product-card-image" />
       <div className="product-card-content">
         <h3 className="product-card-title">{product.name}</h3>
         <p className="product-card-description">{product.description}</p>
