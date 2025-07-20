@@ -24,10 +24,10 @@ let ProductsService = class ProductsService {
         return this.prisma.product.findUnique({ where: { id: Number(id) }, include: { category: true } });
     }
     async createProduct(data) {
-        return this.prisma.product.create({ data });
+        return this.prisma.product.create({ data, include: { category: true } });
     }
     async updateProduct(id, data) {
-        return this.prisma.product.update({ where: { id: Number(id) }, data });
+        return this.prisma.product.update({ where: { id: Number(id) }, data, include: { category: true } });
     }
     async deleteProduct(id) {
         return this.prisma.product.delete({ where: { id: Number(id) } });

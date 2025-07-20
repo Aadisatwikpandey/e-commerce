@@ -16,11 +16,11 @@ export class ProductsService {
   }
 
   async createProduct(data: CreateProductDto): Promise<Product> {
-    return this.prisma.product.create({ data });
+    return this.prisma.product.create({ data, include: { category: true } });
   }
 
   async updateProduct(id: number, data: CreateProductDto): Promise<Product> {
-    return this.prisma.product.update({ where: { id: Number(id) }, data });
+    return this.prisma.product.update({ where: { id: Number(id) }, data, include: { category: true } });
   }
 
   async deleteProduct(id: number): Promise<Product> {
