@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "5 Ways to Create a Cozy Living Room",
+    "author": "Jane Doe",
+    "heroImage": "https://via.placeholder.com/800x400?text=Cozy+Living+Room",
+    "content": "<p>Creating a cozy living room is all about combining comfort and style. Here are five tips to help you get started:</p><ul><li>Add plush textiles like blankets and pillows.</li><li>Incorporate warm lighting with lamps and candles.</li><li>Choose a comfortable sofa as the centerpiece of your room.</li><li>Use natural elements like wood and plants to bring the outdoors in.</li><li>Personalize your space with art and photos.</li></ul>"
+  },
+  {
+    "id": 2,
+    "title": "Modern Dining Room Inspiration",
+    "author": "John Smith",
+    "heroImage": "https://via.placeholder.com/800x400?text=Modern+Dining+Room",
+    "content": "<p>A modern dining room is perfect for both everyday meals and special occasions. Here are some ideas to inspire your design:</p><ul><li>Choose a sleek dining table with clean lines.</li><li>Incorporate statement lighting to create a focal point.</li><li>Use a neutral color palette with pops of color.</li><li>Add a stylish rug to define the space.</li><li>Keep the decor minimal to maintain a clean and modern look.</li></ul>"
+  },
+  {
+    "id": 3,
+    "title": "Designing a Productive Home Office",
+    "author": "Emily White",
+    "heroImage": "https://via.placeholder.com/800x400?text=Productive+Home+Office",
+    "content": "<p>A well-designed home office can boost your productivity and creativity. Here are some tips for creating a space that works for you:</p><ul><li>Choose an ergonomic chair for comfort and support.</li><li>Maximize natural light to reduce eye strain.</li><li>Keep your desk organized and clutter-free.</li><li>Add plants to improve air quality and reduce stress.</li><li>Personalize your space with inspiring decor.</li></ul>"
+  }
+]

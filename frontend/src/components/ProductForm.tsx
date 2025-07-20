@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import './ProductForm.css';
 
 interface ProductFormData {
   name: string;
@@ -66,7 +67,7 @@ const ProductForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const method = id ? 'PUT' : 'POST';
-    const url = id ? `/products/${id}` : '/products';
+    const url = id ? `http://localhost:3001/products/${id}` : 'http://localhost:3001/products';
 
     try {
       const response = await fetch(url, {
@@ -89,32 +90,32 @@ const ProductForm = () => {
   };
 
   return (
-    <div className="product-form">
+    <div className="product-form-container">
       <h2>{id ? t('edit_product') : t('add_new_product')}</h2>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label>{t('name')}:</label>
-          <input type="text" name="name" value={formData.name} onChange={handleChange} required />
+        <div className="product-form-group">
+          <label htmlFor="name">{t('name')}:</label>
+          <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required />
         </div>
-        <div>
-          <label>{t('description')}:</label>
-          <textarea name="description" value={formData.description} onChange={handleChange} required />
+        <div className="product-form-group">
+          <label htmlFor="description">{t('description')}:</label>
+          <textarea id="description" name="description" value={formData.description} onChange={handleChange} required />
         </div>
-        <div>
-          <label>{t('price')}:</label>
-          <input type="number" name="price" value={formData.price} onChange={handleChange} required step="0.01" />
+        <div className="product-form-group">
+          <label htmlFor="price">{t('price')}:</label>
+          <input type="number" id="price" name="price" value={formData.price} onChange={handleChange} required step="0.01" />
         </div>
-        <div>
-          <label>{t('image_url')}:</label>
-          <input type="url" name="imageUrl" value={formData.imageUrl} onChange={handleChange} required />
+        <div className="product-form-group">
+          <label htmlFor="imageUrl">{t('image_url')}:</label>
+          <input type="url" id="imageUrl" name="imageUrl" value={formData.imageUrl} onChange={handleChange} required />
         </div>
-        <div>
-          <label>{t('stock')}:</label>
-          <input type="number" name="stock" value={formData.stock} onChange={handleChange} required />
+        <div className="product-form-group">
+          <label htmlFor="stock">{t('stock')}:</label>
+          <input type="number" id="stock" name="stock" value={formData.stock} onChange={handleChange} required />
         </div>
-        <div>
-          <label>{t('category')}:</label>
-          <select name="categoryId" value={formData.categoryId} onChange={handleChange} required>
+        <div className="product-form-group">
+          <label htmlFor="categoryId">{t('category')}:</label>
+          <select id="categoryId" name="categoryId" value={formData.categoryId} onChange={handleChange} required>
             <option value="">{t('select_a_category')}</option>
             {categories.map((category) => (
               <option key={category.id} value={category.id}>
@@ -123,7 +124,7 @@ const ProductForm = () => {
             ))}
           </select>
         </div>
-        <button type="submit">{id ? t('update_product') : t('add_product')}</button>
+        <button type="submit" className="product-form-submit-button">{id ? t('update_product') : t('add_product')}</button>
       </form>
     </div>
   );

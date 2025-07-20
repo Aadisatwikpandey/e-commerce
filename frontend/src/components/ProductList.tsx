@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import '../App.css';
 import { CartContext } from '../context/CartContext';
 import { useTranslation } from 'react-i18next';
@@ -20,7 +21,7 @@ const ProductList = () => {
   const { t } = useTranslation();
 
   useEffect(() => {
-    fetch('/products')
+    fetch('http://localhost:3001/products')
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
@@ -30,17 +31,23 @@ const ProductList = () => {
   };
 
   return (
-    <div className="product-grid">
-      {products.map((product) => (
-        <div key={product.id} className="product-card">
-          <img src={product.imageUrl} alt={product.name} />
-          <h2>{product.name}</h2>
-          <p>{product.description}</p>
-          <p>${product.price}</p>
-          <p>Category: {product.category.name}</p>
-          <button onClick={() => handleAddToCart(product)}>{t('add_to_cart')}</button>
-        </div>
-      ))}
+    <div className="product-list-container">
+      <div className="product-grid">
+        {products.map((product) => (
+          <Link to={`/products/${product.id}`} key={product.id} className="product-card">
+            <img src={product.imageUrl} alt={product.name} className="product-card-image" />
+            <div className="product-card-content">
+              <h3 className="product-card-title">{product.name}</h3>
+              <p className="product-card-description">{product.description}</p>
+              <p className="product-card-price">${product.price.toFixed(2)}</p>
+              <p className="product-card-category">Category: {product.category.name}</p>
+              <div className="product-card-actions">
+                <button onClick={(e) => { e.preventDefault(); handleAddToCart(product); }} className="button button-primary">{t('add_to_cart')}</button>
+              </div>
+            </div>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 };

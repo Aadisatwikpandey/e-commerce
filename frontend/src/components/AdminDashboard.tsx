@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import './AdminDashboard.css';
 
 interface Product {
   id: number;
@@ -44,7 +45,7 @@ const AdminDashboard = () => {
   const handleDelete = async (id: number) => {
     if (window.confirm(t('confirm_delete_product'))) {
       try {
-        const response = await fetch(`/products/${id}`, {
+        const response = await fetch(`http://localhost:3001/products/${id}`, {
           method: 'DELETE',
           headers: {
             'x-api-key': adminApiKey,
@@ -62,12 +63,14 @@ const AdminDashboard = () => {
   };
 
   return (
-    <div className="admin-dashboard">
+    <div className="admin-dashboard-container">
       <h2>{t('admin_dashboard')}</h2>
-      <Link to="/admin/products/new">
-        <button>{t('add_new_product')}</button>
-      </Link>
-      <table>
+      <div className="admin-actions">
+        <Link to="/admin/products/new">
+          <button className="button button-primary">{t('add_new_product')}</button>
+        </Link>
+      </div>
+      <table className="admin-table">
         <thead>
           <tr>
             <th>ID</th>
@@ -86,11 +89,11 @@ const AdminDashboard = () => {
               <td>${product.price.toFixed(2)}</td>
               <td>{product.stock}</td>
               <td>{product.category?.name || 'N/A'}</td>
-              <td>
+              <td className="admin-table-actions">
                 <Link to={`/admin/products/edit/${product.id}`}>
-                  <button>{t('edit')}</button>
+                  <button className="button button-secondary">{t('edit')}</button>
                 </Link>
-                <button onClick={() => handleDelete(product.id)}>{t('delete')}</button>
+                <button onClick={() => handleDelete(product.id)} className="button button-secondary">{t('delete')}</button>
               </td>
             </tr>
           ))}

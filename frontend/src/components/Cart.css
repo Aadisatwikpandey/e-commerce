@@ -1,0 +1,33 @@
+.cart-container {
+  padding: calc(var(--base-spacing) * 3);
+}
+
+.cart-empty-message {
+  text-align: center;
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+}
+
+.cart-items {
+  margin-bottom: calc(var(--base-spacing) * 3);
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: calc(var(--base-spacing) * 2) 0;
+  border-bottom: 1px solid var(--border-stroke);
+}
+
+.cart-item-info h3 {
+  margin-bottom: var(--base-spacing);
+}
+
+.cart-summary {
+  text-align: right;
+}
+
+.checkout-button {
+  margin-top: var(--base-spacing);
+}

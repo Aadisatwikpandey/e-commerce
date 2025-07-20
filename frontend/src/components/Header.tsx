@@ -1,25 +1,38 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { CartContext } from '../context/CartContext';
 import './Header.css';
 
 const Header = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
+  const { state } = useContext(CartContext);
 
-  const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng);
-  };
+  const cartItemCount = state.items.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
-    <header className="App-header">
-      <h1>
-        <Link to="/">{t('site_title')}</Link>
-      </h1>
-      <nav>
-        <Link to="/cart">{t('cart')}</Link>
-        <button onClick={() => changeLanguage('en')}>English</button>
-        <button onClick={() => changeLanguage('hi')}>हिंदी</button>
+    <header className="header">
+      <Link to="/">
+        <img src="/logo.svg" alt="Logo" className="header-logo" />
+      </Link>
+      <nav className="header-nav">
+        <Link to="/">{t('home')}</Link>
+        <Link to="/products">{t('shop')}</Link>
+        <Link to="/inspiration">{t('inspiration')}</Link>
+        <Link to="/about">{t('about_us')}</Link>
       </nav>
+      <div className="header-search">
+        <input type="text" placeholder={t('search')} className="form-input" />
+      </div>
+      <div className="header-utility">
+        <Link to="/stores">{t('find_a_store')}</Link>
+        <Link to="/account">{t('account')}</Link>
+        <Link to="/wishlist">{t('wishlist')}</Link>
+        <Link to="/cart" className="cart-icon">
+          {t('cart')}
+          {cartItemCount > 0 && <span className="cart-badge">{cartItemCount}</span>}
+        </Link>
+      </div>
     </header>
   );
 };

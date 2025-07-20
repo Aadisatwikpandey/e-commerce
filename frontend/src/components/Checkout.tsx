@@ -22,7 +22,7 @@ const Checkout = () => {
         price: item.price,
       }));
 
-      const response = await fetch('/orders', {
+      const response = await fetch('http://localhost:3001/orders', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -56,17 +56,20 @@ const Checkout = () => {
     <div className="checkout-container">
       <h2>{t('checkout')}</h2>
       {state.items.length === 0 ? (
-        <p>{t('your_cart_is_empty')}</p>
+        <p className="cart-empty-message">{t('your_cart_is_empty')}</p>
       ) : (
         <div className="checkout-summary">
           <h3>{t('order_summary')}</h3>
           {state.items.map((item) => (
             <div key={item.id} className="checkout-item">
-              <p>{item.name} x {item.quantity} - ${item.price.toFixed(2)}</p>
+              <span>{item.name} x {item.quantity}</span>
+              <span>${item.price.toFixed(2)}</span>
             </div>
           ))}
-          <h3>{t('total')}: ${total.toFixed(2)}</h3>
-          <button onClick={handlePlaceOrder}>{t('place_order')}</button>
+          <div className="checkout-total">
+            <h3>{t('total')}: ${total.toFixed(2)}</h3>
+          </div>
+          <button onClick={handlePlaceOrder} className="button button-primary place-order-button">{t('place_order')}</button>
         </div>
       )}
     </div>

@@ -1,0 +1,30 @@
+.checkout-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: calc(var(--base-spacing) * 3);
+}
+
+.checkout-summary {
+  background-color: var(--neutral-surface);
+  padding: calc(var(--base-spacing) * 3);
+  border-radius: var(--card-radius);
+  border: 1px solid var(--border-stroke);
+}
+
+.checkout-item {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--base-spacing) 0;
+}
+
+.checkout-total {
+  margin-top: calc(var(--base-spacing) * 2);
+  padding-top: calc(var(--base-spacing) * 2);
+  border-top: 1px solid var(--border-stroke);
+  text-align: right;
+}
+
+.place-order-button {
+  width: 100%;
+  margin-top: calc(var(--base-spacing) * 2);
+}

@@ -1,0 +1,69 @@
+.product-form-container {
+  padding: var(--spacing-lg);
+  max-width: 700px;
+  margin: var(--spacing-xl) auto;
+  background-color: var(--surface-color);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--box-shadow-md);
+}
+
+.product-form-container h2 {
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-lg);
+}
+
+.product-form-group {
+  margin-bottom: var(--spacing-md);
+}
+
+.product-form-group label {
+  display: block;
+  margin-bottom: var(--spacing-sm);
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.product-form-group input[type="text"],
+.product-form-group input[type="number"],
+.product-form-group input[type="url"],
+.product-form-group textarea,
+.product-form-group select {
+  width: 100%;
+  padding: var(--spacing-sm);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  box-sizing: border-box;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.product-form-group input[type="text"]:focus,
+.product-form-group input[type="number"]:focus,
+.product-form-group input[type="url"]:focus,
+.product-form-group textarea:focus,
+.product-form-group select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.product-form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.product-form-submit-button {
+  width: 100%;
+  padding: var(--spacing-md);
+  font-size: 1.1rem;
+  font-weight: 600;
+  background-color: var(--primary-color);
+  color: var(--surface-color);
+  border-radius: var(--border-radius-md);
+  margin-top: var(--spacing-lg);
+  transition: background-color 0.2s ease-in-out;
+}
+
+.product-form-submit-button:hover {
+  background-color: #0056b3;
+}

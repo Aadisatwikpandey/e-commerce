@@ -1,0 +1,26 @@
+.admin-dashboard-container {
+  padding: calc(var(--base-spacing) * 3);
+}
+
+.admin-actions {
+  margin-bottom: calc(var(--base-spacing) * 3);
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-table th, .admin-table td {
+  padding: calc(var(--base-spacing) * 2);
+  text-align: left;
+  border-bottom: 1px solid var(--border-stroke);
+}
+
+.admin-table th {
+  background-color: var(--neutral-background);
+}
+
+.admin-table-actions .button {
+  margin-right: var(--base-spacing);
+}

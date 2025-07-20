@@ -1,121 +1,89 @@
 .App {
-  text-align: center;
-}
-
-.App-header {
-  background-color: #282c34;
-  padding: 20px;
-  color: white;
-}
-
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
-  padding: 20px;
-}
-
-.product-card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 16px;
-  text-align: left;
-}
-
-.product-card img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 4px;
-}
-
-.cart-container {
-  padding: 20px;
-  text-align: left;
-}
-
-.cart-item {
-  border: 1px solid #eee;
-  padding: 10px;
-  margin-bottom: 10px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-.cart-item button {
-  background-color: #dc3545;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.cart-item button:hover {
-  background-color: #c82333;
-}
-
-.admin-dashboard {
-  padding: 20px;
-  text-align: left;
-}
-
-.admin-dashboard table {
+main {
+  flex: 1;
+  padding: calc(var(--base-spacing) * 3);
+  max-width: var(--container-width);
+  margin: 0 auto;
   width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
 }
 
-.admin-dashboard th, .admin-dashboard td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
-}
-
-.admin-dashboard th {
-  background-color: #f2f2f2;
-}
-
-.admin-dashboard button {
-  margin-right: 5px;
-  padding: 5px 10px;
+/* Generic Button Styles */
+.button {
+  height: var(--button-height);
+  padding: var(--button-padding);
+  border-radius: var(--button-radius);
+  font-size: 1rem; /* 16px */
+  font-weight: 600; /* Semi-Bold */
   cursor: pointer;
-}
-
-.product-form {
-  padding: 20px;
-  text-align: left;
-}
-
-.product-form div {
-  margin-bottom: 10px;
-}
-
-.product-form label {
-  display: block;
-  margin-bottom: 5px;
-}
-
-.product-form input[type="text"],
-.product-form input[type="number"],
-.product-form input[type="url"],
-.product-form textarea,
-.product-form select {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.product-form button[type="submit"] {
-  background-color: #007bff;
-  color: white;
+  transition: all 0.3s ease;
   border: none;
-  padding: 10px 15px;
-  border-radius: 4px;
-  cursor: pointer;
 }
 
-.product-form button[type="submit"]:hover {
-  background-color: #0056b3;
+.button-primary {
+  background-color: var(--primary-blue);
+  color: var(--neutral-surface);
+}
+
+.button-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.button-secondary {
+  background-color: transparent;
+  color: var(--primary-blue);
+  border: 2px solid var(--primary-blue);
+}
+
+.button-secondary:hover {
+  background-color: var(--light-blue-hover);
+}
+
+.button:disabled {
+  background-color: var(--border-stroke);
+  color: var(--text-secondary);
+  cursor: not-allowed;
+}
+
+/* Form Input Styles */
+.form-input {
+  height: var(--input-height);
+  padding: var(--input-padding);
+  border-radius: var(--input-radius);
+  border: 1px solid var(--border-stroke);
+  background-color: var(--neutral-surface);
+  font-size: 1rem;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 3px var(--light-blue-hover);
+}
+
+.form-input.error {
+  border-color: var(--feedback-error);
+}
+
+.form-helper-text {
+  color: var(--feedback-error);
+  font-size: 0.875rem;
+}
+
+/* Card Styles */
+.card {
+  background-color: var(--neutral-surface);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
 }
